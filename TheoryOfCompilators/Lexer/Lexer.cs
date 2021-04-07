@@ -8,7 +8,7 @@ namespace TheoryOfCompilators.Lexer
     { 
         private StringBuilder _currentBuffer;
         private List<Lex> _allLexes;
-        private  readonly List<char> _delimeters = new List<char>() {' ', ',', ';', '.', '=','\n','{','[',']','}'};
+        private  readonly List<char> _delimeters = new List<char>() {' ', ',', ';', '.', '=','\n','{','[',']','}',':'};
         private  readonly List<string> _keyword = new List<string>() {"Begin", "Node_places", "Lines","val"};
         private  LexerState _state;
 
@@ -28,6 +28,10 @@ namespace TheoryOfCompilators.Lexer
                    case LexerState.START :
                        if (_delimeters.Contains(curChar))
                        {
+                           if (curChar == ' ')
+                           {
+                               continue;
+                           }
                            PushLex(new Lex(_allLexes.Count+1,LexType.DELIMETER,curChar.ToString()));
                            
                        }else if (Char.IsDigit(curChar))
@@ -68,12 +72,14 @@ namespace TheoryOfCompilators.Lexer
                            _currentBuffer.Append(curChar);
                        }else if (curChar == '"')
                        {
+                           _currentBuffer.Append(curChar);
                            PushLex(new Lex(_allLexes.Count + 1, LexType.STRING, _currentBuffer.ToString()));
                            _currentBuffer.Clear();
                            _state = LexerState.START;
                        }
                        else
                        {
+                           _currentBuffer.Append(curChar);
                            PushLex(new Lex(_allLexes.Count + 1, LexType.ERR, _currentBuffer.ToString()));
                            _currentBuffer.Clear();
                            _state = LexerState.START;
@@ -86,6 +92,7 @@ namespace TheoryOfCompilators.Lexer
                        }
                        else
                        {
+                           _currentBuffer.Append(curChar);
                            PushLex(new Lex(_allLexes.Count + 1, LexType.NUMBER, _currentBuffer.ToString()));
                            _currentBuffer.Clear();
                            _state = LexerState.START;

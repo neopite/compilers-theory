@@ -1,3 +1,4 @@
-﻿begin [
-val triangleNode = { type = "circle" ; drawColor = "red" ; fillColor = "black" ; units = 3 },
-val circleNode = { type = "square" ; fillColor = "purple" ; drawColor = "red" ; units = 8 } ]
+﻿Begin [
+val triangleNode = { type : "circle" , drawColor :"red" , fillColor : "black" , units : 3 } ;
+val circleNode = { type : "square" , fillColor : "purple" , drawColor : "red" , units : 8 } ;
+]
