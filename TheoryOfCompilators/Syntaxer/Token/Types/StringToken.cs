@@ -2,15 +2,20 @@
 
 namespace TheoryOfCompilators.Syntaxer.Token
 {
-    public class StringToken : ValueToken
-    { 
-        public string Value { get; private set; }
-
-        public StringToken(string value)
+    public class StringToken :  ValueToken,AbstractTokenParser<StringToken>
+    {
+        public StringToken(object value) : base(value)
         {
-            Value = value;
         }
 
-       
+        public StringToken()
+        {
+        }
+
+        public StringToken CreateToken()
+        {
+            Lex lex= SyntaxParser.Parse(null, LexType.STRING);
+            return new StringToken(lex.Value);
+        }
     }
 }

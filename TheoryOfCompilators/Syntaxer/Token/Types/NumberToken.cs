@@ -1,16 +1,22 @@
-﻿using TheoryOfCompilators.Lexer;
+﻿using System;
+using TheoryOfCompilators.Lexer;
 
 namespace TheoryOfCompilators.Syntaxer.Token
 {
-    public class NumberToken : ValueToken
+    public class NumberToken :  ValueToken,AbstractTokenParser<NumberToken>
     {
-        public int Value { get; private set; }
-
-        public NumberToken(int value)
+        public NumberToken(object value) : base(value)
         {
-            Value = value;
         }
 
-      
+        public NumberToken()
+        {
+        }
+
+        public NumberToken CreateToken()
+        {
+            var token = SyntaxParser.Parse(null, LexType.NUMBER);
+            return new NumberToken(Int32.Parse(token.Value));
+        }
     }
 }
