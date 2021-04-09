@@ -14,7 +14,7 @@ namespace TheoryOfCompilators
             lexer.FindLex(chars);
             SyntaxParser syntaxParser = new SyntaxParser(lexer.AllLexes);
             List<StatementToken> listOfStatement = new List<StatementToken>();
-            while (SyntaxParser._currentLex < lexer.AllLexes.Count-1)
+            while (SyntaxParser._currentLex < lexer.AllLexes.Count)
             {
                 listOfStatement.Add(new StatementToken().CreateToken());
             }

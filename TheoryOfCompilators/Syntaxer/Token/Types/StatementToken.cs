@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TheoryOfCompilators.Lexer;
 
 namespace TheoryOfCompilators.Syntaxer.Token
 {
@@ -23,7 +24,8 @@ namespace TheoryOfCompilators.Syntaxer.Token
             {
              declarationToken= new DeclarationToken().CreateToken();
             }
-
+            SyntaxParser.Parse(";", LexType.DELIMETER);
+            
             return new StatementToken(declarationToken);
         }
     }
