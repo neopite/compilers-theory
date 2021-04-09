@@ -22,9 +22,13 @@ namespace TheoryOfCompilators.Syntaxer.Token
         {
             var identifierToken = new IdentifierToken(null).CreateToken();
             SyntaxParser.Parse(":", LexType.DELIMETER); 
-            //var value = new ValueToken<NumberToken>().CreateToken();
-            //return new ObjectPropertyToken(identifierToken, value.Value.ToString());
-            return new ObjectPropertyToken();
+            var value = new ValueToken().CreateToken();
+            return new ObjectPropertyToken(identifierToken, value);
+        }
+
+        public override string ToString()
+        {
+            return IdentifierToken.ToString() + "/n" + Value.ToString();
         }
     }
 }

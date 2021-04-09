@@ -12,6 +12,12 @@ namespace TheoryOfCompilators.Lexer
         private  readonly List<string> _keyword = new List<string>() {"Begin", "Node_places", "Lines","val"};
         private  LexerState _state;
 
+        public List<Lex> AllLexes
+        {
+            get => _allLexes;
+            private set => _allLexes = value;
+        }
+
         public Lexer()
         {
             _allLexes = new List<Lex>();

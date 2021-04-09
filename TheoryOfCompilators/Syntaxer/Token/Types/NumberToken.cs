@@ -18,5 +18,10 @@ namespace TheoryOfCompilators.Syntaxer.Token
             var token = SyntaxParser.Parse(null, LexType.NUMBER);
             return new NumberToken(Int32.Parse(token.Value));
         }
+
+        public override string ToString()
+        {
+            return ((int) Value).ToString();
+        }
     }
 }

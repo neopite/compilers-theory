@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TheoryOfCompilators.Lexer;
 
 namespace TheoryOfCompilators.Syntaxer.Token
 {
@@ -18,7 +19,19 @@ namespace TheoryOfCompilators.Syntaxer.Token
 
         public ValueToken CreateToken()
         {
-            return new StringToken();
+            Lex lex = SyntaxParser.GetCurrentLex();
+            switch (lex.LexType)
+            {
+              case  LexType.NUMBER : return new NumberToken().CreateToken();
+              case LexType.STRING : return new StringToken().CreateToken();
+            }
+
+            if (lex.Value == "{")
+            {
+                return new ObjectToken().CreateToken();
+            }
+
+            return null;
         }
     }
 }

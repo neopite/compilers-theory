@@ -2,13 +2,29 @@
 
 namespace TheoryOfCompilators.Syntaxer.Token
 {
-    public class StatementToken
+    public class StatementToken : AbstractTokenParser<StatementToken>
     {
-        public List<DeclarationToken> DeclarationToken { get; private set; }
+        public DeclarationToken DeclarationToken { get; private set; }
 
-        public StatementToken(List<DeclarationToken> declarationToken)
+        public StatementToken(DeclarationToken declarationToken)
         {
             DeclarationToken = declarationToken;
+        }
+
+        public StatementToken()
+        {
+        }
+
+        public StatementToken CreateToken()
+        {
+            var currToken = SyntaxParser.GetCurrentLex();
+            DeclarationToken declarationToken = null;
+            if (currToken.Value == "val")
+            {
+             declarationToken= new DeclarationToken().CreateToken();
+            }
+
+            return new StatementToken(declarationToken);
         }
     }
 }

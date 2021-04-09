@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using TheoryOfCompilators.Lexer;
 
 namespace TheoryOfCompilators.Syntaxer.Token
@@ -7,13 +8,13 @@ namespace TheoryOfCompilators.Syntaxer.Token
     public class SyntaxParser
     {
         private static List<Lex> _lexes;
-        private static int _currentLex;
+        public static int _currentLex;
 
         public SyntaxParser(List<Lex> lexes)
         {
             _lexes = lexes;
         }
-
+        
         public static Lex Parse(string value, LexType lexType)
         {
             if (_currentLex >= _lexes.Count)
@@ -22,7 +23,7 @@ namespace TheoryOfCompilators.Syntaxer.Token
             }
 
             var token = _lexes[_currentLex];
-            if ((value == null || token.Value == null) && (lexType == null || token.LexType == lexType))
+            if ((value == null || token.Value == value) && (lexType == null || token.LexType == lexType))
             {
                 _currentLex++;
                 return token;

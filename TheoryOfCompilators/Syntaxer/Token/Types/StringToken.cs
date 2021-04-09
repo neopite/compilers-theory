@@ -17,5 +17,10 @@ namespace TheoryOfCompilators.Syntaxer.Token
             Lex lex= SyntaxParser.Parse(null, LexType.STRING);
             return new StringToken(lex.Value);
         }
+
+        public override string ToString()
+        {
+            return (string)Value;
+        }
     }
 }
