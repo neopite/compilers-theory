@@ -35,5 +35,10 @@ namespace TheoryOfCompilators.Syntaxer.Token
         {
             return _lexes[_currentLex];
         }
+
+        public static Lex GetLexById(int count)
+        {
+            return _lexes[_currentLex + count];
+        }
     }
 }

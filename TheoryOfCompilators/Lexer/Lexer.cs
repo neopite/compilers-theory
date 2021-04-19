@@ -9,7 +9,7 @@ namespace TheoryOfCompilators.Lexer
     { 
         private StringBuilder _currentBuffer;
         private List<Lex> _allLexes;
-        private  readonly List<char> _delimeters = new List<char>() {' ', ',', ';', '.', '=','{','[',']','}',':'};
+        private  readonly List<char> _delimeters = new List<char>() {' ', ',', ';', '.', '=','{','[',']','}',':','(',')'};
         private  readonly List<string> _keyword = new List<string>() {"Begin", "Node_places", "Lines","val","new"};
         private  LexerState _state;
 

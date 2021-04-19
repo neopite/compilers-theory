@@ -22,7 +22,7 @@ namespace TheoryOfCompilators
                 listOfStatement.Add(new StatementToken().CreateToken());
             }
 
-            SemanticalAnalyzer.SemanticAnalyzer.CheckStatementsSemantic(listOfStatement);
+           //SemanticalAnalyzer.SemanticAnalyzer.CheckStatementsSemantic(listOfStatement);
             Console.Write(listOfStatement);
             /*ObjectField objectField = new ObjectField("type", VarType.Number);
             ObjectField objectField1 = new ObjectField("type", VarType.String);
