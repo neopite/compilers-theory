@@ -5,6 +5,8 @@ namespace TheoryOfCompilators.Syntaxer.Token
 {
     public class ObjectPropertyToken : ValueToken,AbstractTokenParser<ObjectPropertyToken>
     {
+        public override VarType Type => VarType.Property;
+
         public IdentifierToken IdentifierToken { get; private set; }
         public ValueToken Value { get; private set; }
 

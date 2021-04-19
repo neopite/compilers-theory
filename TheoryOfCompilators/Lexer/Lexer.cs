@@ -65,7 +65,7 @@ namespace TheoryOfCompilators.Lexer
                        }
                        else
                        {
-                           List<string> allTypes = System.Enum.GetNames(typeof(ObjectTypes)).ToList();
+                           List<string> allTypes = System.Enum.GetNames(typeof(VarType)).ToList();
                            
                            if (allTypes.Contains(_currentBuffer.ToString()))
                            {

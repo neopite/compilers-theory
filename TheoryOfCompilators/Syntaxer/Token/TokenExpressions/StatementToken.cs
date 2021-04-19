@@ -22,11 +22,13 @@ namespace TheoryOfCompilators.Syntaxer.Token
             DeclarationToken declarationToken = null;
             if (currToken.Value == "val")
             {
-             declarationToken= new DeclarationToken().CreateToken();
+                declarationToken= new DeclarationToken().CreateToken();
             }
             SyntaxParser.Parse(";", LexType.DELIMETER);
             
             return new StatementToken(declarationToken);
         }
+        
+        
     }
 }

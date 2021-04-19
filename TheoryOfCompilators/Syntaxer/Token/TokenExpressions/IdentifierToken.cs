@@ -10,7 +10,7 @@ namespace TheoryOfCompilators.Syntaxer.Token
         {
             Value = value;
         }
-
+        
         public IdentifierToken CreateToken()
         {
             var token = SyntaxParser.Parse(null, LexType.IDENTIFIER);

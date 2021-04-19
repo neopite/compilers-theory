@@ -14,7 +14,7 @@ namespace TheoryOfCompilators.Syntaxer.Token
             IdentifierToken = identifierToken;
             ValueToken = valueToken;
         }
-
+        
         public DeclarationToken()
         {
         }
@@ -24,8 +24,9 @@ namespace TheoryOfCompilators.Syntaxer.Token
             SyntaxParser.Parse(KEYWORD, LexType.KEYWORD);
             var id = new IdentifierToken("null").CreateToken();
             SyntaxParser.Parse("=", LexType.DELIMETER);
+            VarType varType;
             ObjectToken obj = null;
-            if (SyntaxParser.GetCurrentLex().Value == "{")
+            if (SyntaxParser.GetCurrentLex().Value == "new")
             {
                 obj = new ObjectToken(null).CreateToken();
             }

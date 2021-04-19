@@ -5,6 +5,8 @@ namespace TheoryOfCompilators.Syntaxer.Token
 {
     public class NumberToken :  ValueToken,AbstractTokenParser<NumberToken>
     {
+        public override VarType Type => VarType.Number;
+
         public NumberToken(object value) : base(value)
         {
         }

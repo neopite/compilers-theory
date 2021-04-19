@@ -6,7 +6,14 @@ namespace TheoryOfCompilators.Syntaxer.Token
 {
     public class ValueToken : AbstractTokenParser<ValueToken> 
     {
+        public virtual VarType Type { get; private set; }
         public object Value { get; private set; }
+
+        public ValueToken(VarType type, object value)
+        {
+            Type = type;
+            Value = value;
+        }
 
         public ValueToken(object value)
         {

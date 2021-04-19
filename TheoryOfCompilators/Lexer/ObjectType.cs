@@ -1,6 +1,6 @@
 ﻿namespace TheoryOfCompilators.Lexer
 {
-    public enum ObjectTypes
+    public enum ObjectType
     {
         Node , Line
     }
