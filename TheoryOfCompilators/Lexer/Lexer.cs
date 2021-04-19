@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace TheoryOfCompilators.Lexer
@@ -9,7 +10,7 @@ namespace TheoryOfCompilators.Lexer
         private StringBuilder _currentBuffer;
         private List<Lex> _allLexes;
         private  readonly List<char> _delimeters = new List<char>() {' ', ',', ';', '.', '=','{','[',']','}',':'};
-        private  readonly List<string> _keyword = new List<string>() {"Begin", "Node_places", "Lines","val"};
+        private  readonly List<string> _keyword = new List<string>() {"Begin", "Node_places", "Lines","val","new"};
         private  LexerState _state;
 
         public List<Lex> AllLexes
@@ -64,10 +65,19 @@ namespace TheoryOfCompilators.Lexer
                        }
                        else
                        {
-                           int keyword = _keyword.IndexOf(_currentBuffer.ToString());
-                           if (keyword != -1)
-                               PushLex(new Lex(_allLexes.Count + 1, LexType.KEYWORD, _currentBuffer.ToString()));
-                           else PushLex(new Lex(_allLexes.Count + 1, LexType.IDENTIFIER, _currentBuffer.ToString()));
+                           List<string> allTypes = System.Enum.GetNames(typeof(ObjectTypes)).ToList();
+                           
+                           if (allTypes.Contains(_currentBuffer.ToString()))
+                           {
+                               PushLex(new Lex(_allLexes.Count + 1 , LexType.TYPE , _currentBuffer.ToString()));
+                           }
+                           else
+                           {
+                               int keyword = _keyword.IndexOf(_currentBuffer.ToString());
+                               if (keyword != -1)
+                                   PushLex(new Lex(_allLexes.Count + 1, LexType.KEYWORD, _currentBuffer.ToString()));
+                               else PushLex(new Lex(_allLexes.Count + 1, LexType.IDENTIFIER, _currentBuffer.ToString()));
+                           }
                            _currentBuffer.Clear();
                            _state = LexerState.START;
                        }
