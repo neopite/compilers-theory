@@ -21,8 +21,10 @@ namespace TheoryOfCompilators
             {
                 listOfStatement.Add(new StatementToken().CreateToken());
             }
-
-           //SemanticalAnalyzer.SemanticAnalyzer.CheckStatementsSemantic(listOfStatement);
+            
+           SemanticalAnalyzer.SemanticAnalyzer.CheckDeclarationSemantic(listOfStatement);
+           List<MyVariable> vars =ProgramContextHolder.GetInstance().Variables;
+           List<MyFunction> fun =ProgramContextHolder.GetInstance().Functions;
             Console.Write(listOfStatement);
             /*ObjectField objectField = new ObjectField("type", VarType.Number);
             ObjectField objectField1 = new ObjectField("type", VarType.String);
