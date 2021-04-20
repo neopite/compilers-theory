@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using TheoryOfCompilators.DiagramDrawer;
+using TheoryOfCompilators.DiagramDrawer.Entitys;
 using TheoryOfCompilators.Lexer;
 using TheoryOfCompilators.SemanticalAnalyzer;
 using TheoryOfCompilators.Syntaxer.Token;
@@ -23,12 +25,9 @@ namespace TheoryOfCompilators
             }
             
            SemanticalAnalyzer.SemanticAnalyzer.CheckDeclarationSemantic(listOfStatement);
-           List<MyVariable> vars =ProgramContextHolder.GetInstance().Variables;
-           List<MyFunction> fun =ProgramContextHolder.GetInstance().Functions;
+            EntityHolder entityHolder = EntityHolder.GetInstance();
             Console.Write(listOfStatement);
-            /*ObjectField objectField = new ObjectField("type", VarType.Number);
-            ObjectField objectField1 = new ObjectField("type", VarType.String);
-            Console.Write(objectField.Equals(objectField1));*/
+            
         }
     }
 }
