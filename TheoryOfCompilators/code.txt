@@ -1,2 +1,6 @@
-﻿val triangleNode = { type : "circle" , drawColor :"red" , fillColor : "black" , units : 3 } ;
-val circleNode = { type : "square" , fillColor : "purple" , drawColor : "red" , units : 8 } ;
+﻿val circleNode = new Node { type : "circle" , drawColor :"red" , fillColor : "black" , units : 3 } ;
+val triangleNode = new Node { type : "triangle" , drawColor :"red" , fillColor : "black" , units : 3 } ;
+val arrow = new Line { width : 4 , arrow : "diamond" , color : "black" } ;
+
+drawLine ( circleNode , triangleNode , arrow ) ;
+drawNode ( circleNode ) ; 

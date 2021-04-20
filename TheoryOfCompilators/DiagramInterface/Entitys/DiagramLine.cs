@@ -63,9 +63,9 @@ namespace TheoryOfCompilators.DiagramDrawer.Entitys
 
             public DiagramLine Build()
             {
-                DiagramLine diagramNode = Entity;
+                DiagramLine node = Entity;
                 Reset();
-                return diagramNode;
+                return node;
             }
 
             public DiagramNodeBuilder BuildWidth(int width)

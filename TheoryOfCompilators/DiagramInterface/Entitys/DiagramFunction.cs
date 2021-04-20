@@ -2,12 +2,12 @@
 
 namespace TheoryOfCompilators.DiagramDrawer.Entitys
 {
-    public class Function
+    public class DiagramFunction
     {
         public string FunctionName { get; private set; }
         public List<string> ParametersNames { get; private set; }
 
-        public Function(string functionName, List<string> parametersNames)
+        public DiagramFunction(string functionName, List<string> parametersNames)
         {
             FunctionName = functionName;
             ParametersNames = parametersNames;

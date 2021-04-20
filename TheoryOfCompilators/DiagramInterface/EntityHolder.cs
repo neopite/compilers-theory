@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TheoryOfCompilators.DiagramDrawer.Entitys;
 using TheoryOfCompilators.Lexer;
@@ -11,13 +12,13 @@ namespace TheoryOfCompilators.DiagramDrawer
         public static EntityHolder Instance { get; private set; }
         public List<DiagramNode> DiagramNodes { get; private set; }
         public List<DiagramLine> DiagramLines { get; private set; }
-        public List<Function> Functions { get; private set; }
+        public List<DiagramFunction> Functions { get; private set; }
 
         private EntityHolder()
         {
             DiagramNodes = new List<DiagramNode>();
             DiagramLines = new List<DiagramLine>();
-            Functions = new List<Function>();
+            Functions = new List<DiagramFunction>();
             FillEntityFolder(ProgramContextHolder.GetInstance());
         }
 
@@ -34,6 +35,7 @@ namespace TheoryOfCompilators.DiagramDrawer
         private void FillEntityFolder(ProgramContextHolder contextHolder)
         { 
             ExtractVariables(contextHolder.Variables);
+            ExtractFunction(contextHolder.Functions);
         }
 
         private  void ExtractVariables(List<MyVariable> variables)
@@ -51,6 +53,18 @@ namespace TheoryOfCompilators.DiagramDrawer
 
             DiagramNodes = listOfNodes;
             DiagramLines = diagramLinesList;
+        }
+
+        private void ExtractFunction(List<MyFunction> functions)
+        {
+            List<DiagramFunction> listOfFunctions = new List<DiagramFunction>();
+            for (int i = 0; i < functions.Count; i++)
+            {
+                MyFunction currentFunc = functions[i];
+                listOfFunctions.Add(new DiagramFunction(currentFunc.MethodName,currentFunc.VarsParameters));
+            }
+
+            Functions = listOfFunctions;
         }
 
     }

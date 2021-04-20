@@ -21,7 +21,8 @@ namespace TheoryOfCompilators.SemanticalAnalyzer
             {
                new MethodDescription("drawLine",new List<VarType>() {VarType.Node,
                    VarType.Node,
-                   VarType.Line})
+                   VarType.Line}),
+               new MethodDescription("drawNode",new List<VarType>() {VarType.Node})
             });
 
         public static List<MethodDescription> MethodDescriptions => _methodsDescriptions.Value;

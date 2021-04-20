@@ -25,7 +25,10 @@ namespace TheoryOfCompilators
             }
             
            SemanticalAnalyzer.SemanticAnalyzer.CheckDeclarationSemantic(listOfStatement);
-            EntityHolder entityHolder = EntityHolder.GetInstance();
+           List<DiagramFunction> myFunctions = EntityHolder.GetInstance().Functions;
+           List<DiagramNode> myNodes = EntityHolder.GetInstance().DiagramNodes;
+           List<DiagramLine> myLines = EntityHolder.GetInstance().DiagramLines;
+           EntityHolder entityHolder = EntityHolder.GetInstance();
             Console.Write(listOfStatement);
             
         }
