@@ -67,5 +67,20 @@ namespace TheoryOfCompilators.DiagramDrawer
             Functions = listOfFunctions;
         }
 
+        public DiagramNode GetNodeByName(string name)
+        {
+            return DiagramNodes.Find(x => string.Equals(name, x.Name));
+        } 
+        
+        public DiagramLine GetLineByName(string name)
+        {
+            return DiagramLines.Find(x => string.Equals(name, x.Name));
+        } 
+        
+        public DiagramFunction GetFunctionByName(string name)
+        {
+            return Functions.Find(x => string.Equals(name, x.FunctionName));
+        } 
+
     }
 }

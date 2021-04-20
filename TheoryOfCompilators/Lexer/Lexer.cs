@@ -88,7 +88,7 @@ namespace TheoryOfCompilators.Lexer
                            _currentBuffer.Append(curChar);
                        }else if (curChar == '"')
                        {
-                           _currentBuffer.Append(curChar);
+                           _currentBuffer.Remove(0, 1);
                            PushLex(new Lex(_allLexes.Count + 1, LexType.STRING, _currentBuffer.ToString()));
                            _currentBuffer.Clear();
                            _state = LexerState.START;
