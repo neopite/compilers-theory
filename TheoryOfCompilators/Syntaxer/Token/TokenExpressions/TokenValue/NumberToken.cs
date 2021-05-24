@@ -3,7 +3,7 @@ using TheoryOfCompilators.Lexer;
 
 namespace TheoryOfCompilators.Syntaxer.Token
 {
-    public class NumberToken :  ValueToken,AbstractTokenParser<NumberToken>
+    public class NumberToken :  ValueToken
     {
         public override VarType Type => VarType.Number;
 

@@ -30,7 +30,6 @@ namespace Executer
             {
                 listOfStatement.Add(new StatementToken().CreateToken());
             }
-
             SemanticAnalyzer.CheckDeclarationSemantic(listOfStatement);
             DiagramExecutor.Setup();
             ProccesParsedData(EntityHolder.GetInstance());

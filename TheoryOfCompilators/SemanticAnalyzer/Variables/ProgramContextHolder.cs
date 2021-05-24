@@ -7,7 +7,7 @@ namespace TheoryOfCompilators.SemanticalAnalyzer
     {
         public static ProgramContextHolder Instance { get; private set; }
         
-        public List<MyVariable> Variables { get; private set; }
+        public List<MyVariable> Variables { get; set; }
         public List<MyFunction> Functions { get; private set; }
 
         private ProgramContextHolder()

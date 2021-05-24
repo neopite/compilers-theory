@@ -1,13 +1,4 @@
-﻿val circleNode = new Node { type : "circle" , drawColor : "black" , fillColor : "pink" , units : 3 } ;
-val triangleNode = new Node { type : "triangle" , drawColor : "red" , fillColor : "red" , units : 3 } ;
-val square = new Node { type : "triangle" , drawColor : "pink" , fillColor : "green" , units : 3 } ;
-val arrow = new Line { width : 1 , arrow : "none" , color : "black" } ;
+﻿val circleNode = new Node { type : "circle" , drawColor : "red" , fillColor : "green" , units : 3 } ;
+val diamondNode = new Node { type : "diamond" , drawColor : "red" , fillColor : "blue" , units : 3 } ;
 
-drawNode ( circleNode ) ; 
-drawNode ( triangleNode ) ; 
-drawNode ( square ) ; 
-drawLine ( triangleNode , circleNode , arrow ) ;
-drawLine ( circleNode , triangleNode , arrow ) ;
-drawLine ( square , triangleNode , arrow ) ;
-drawLine ( square , circleNode , arrow ) ;
-drawLine ( circleNode , square , arrow ) ;
+drawNode ( circleNode ) ;

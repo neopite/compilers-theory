@@ -17,6 +17,7 @@ namespace DiagramDrawer
         private static System.Windows.Forms.Form _form;
         private static ColorAdapter _colorAdapter;
         private static LineArrowAdapter _arrowAdapter;
+        private static FigureAdapter _figureAdapter;
         
         public static void Setup()
         {
@@ -25,7 +26,7 @@ namespace DiagramDrawer
             _graph = new Microsoft.Msagl.Drawing.Graph("graph");
             _colorAdapter = new ColorAdapter();
             _arrowAdapter = new LineArrowAdapter();
-
+            _figureAdapter = new FigureAdapter();
         }
 
         public static void ShowDiagram()
@@ -44,7 +45,7 @@ namespace DiagramDrawer
         public static Node CreateNode(DiagramNode node)
         {
             Node newNode = new Node(node.Name);
-            newNode.Attr.Shape = Shape.Box;
+            newNode.Attr.Shape = _figureAdapter.Adapt(node.Type);
             newNode.Attr.FillColor=_colorAdapter.Adapt(node.FillColor);
             newNode.Attr.Color = _colorAdapter.Adapt(node.DrawColor);
             newNode.LabelText = node.Name;

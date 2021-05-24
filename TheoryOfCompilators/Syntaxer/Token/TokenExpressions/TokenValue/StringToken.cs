@@ -2,7 +2,7 @@
 
 namespace TheoryOfCompilators.Syntaxer.Token
 {
-    public class StringToken :  ValueToken,AbstractTokenParser<StringToken>
+    public class StringToken :  ValueToken
     {
         public override VarType Type => VarType.String;
 

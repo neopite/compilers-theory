@@ -3,7 +3,7 @@ using TheoryOfCompilators.Lexer;
 
 namespace TheoryOfCompilators.Syntaxer.Token
 {
-    public class ObjectPropertyToken : ValueToken,AbstractTokenParser<ObjectPropertyToken>
+    public class ObjectPropertyToken : ValueToken
     {
         public override VarType Type => VarType.Property;
 

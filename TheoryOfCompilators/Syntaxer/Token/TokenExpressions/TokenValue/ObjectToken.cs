@@ -4,7 +4,7 @@ using TheoryOfCompilators.Lexer;
 
 namespace TheoryOfCompilators.Syntaxer.Token
 {
-    public class ObjectToken : ValueToken, AbstractTokenParser<ObjectToken>
+    public class ObjectToken : ValueToken
     {
 
         public ObjectToken(VarType type, object value) : base(type, value)
